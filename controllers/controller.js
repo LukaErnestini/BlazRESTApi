@@ -19,24 +19,26 @@ exports.postAddNapotnica = (req, res, next) => {
   const veljavnost_od = req.body.veljavnost_od;
   const veljavnost_do = req.body.veljavnost_do;
   const pacientId = req.body.pacientId;
+  const stevilka = req.body.stevilka;
   Napotnica.create({
     veljavnost_od,
     veljavnost_do,
     pacientId,
+    stevilka,
   });
   res.json({ status: "Ustvarjena napotnica" });
 };
 
 exports.postPreveriNapotnico = (req, res, next) => {
-  const napotnicaId = req.body.napotnicaId;
+  const stevilka = req.body.stevilka;
 
-  Napotnica.findByPk(napotnicaId)
+  Napotnica.findOne({ where: { stevilka } })
     .then((napotnica) => {
       if (napotnica) {
-        console.log(`Napotnica with ID ${napotnicaId} found!`);
+        console.log(`Napotnica with ID ${stevilka} found!`);
         res.json({ status: "Napotnica obstaja" });
       } else {
-        console.log(`Napotnica with ID ${napotnicaId} not found.`);
+        console.log(`Napotnica with ID ${stevilka} not found.`);
         res.json({ status: "Napotnica ne obstaja" });
       }
     })

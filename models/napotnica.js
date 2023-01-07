@@ -12,6 +12,11 @@ const Napotnica = sequelize.define("napotnica", {
   },
   veljavnost_od: DataTypes.DATE,
   veljavnost_do: DataTypes.DATE,
+  stevilka: {
+    type: DataTypes.INTEGER,
+    unique: true,
+    allowNull: false,
+  },
   pacientId: {
     type: DataTypes.INTEGER,
     references: {
