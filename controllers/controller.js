@@ -39,7 +39,7 @@ exports.postPreveriNapotnico = (req, res, next) => {
         res.json({ status: "Napotnica obstaja" });
       } else {
         console.log(`Napotnica with ID ${stevilka} not found.`);
-        res.json({ status: "Napotnica ne obstaja" });
+        res.status(404).json({ status: "Napotnica ne obstaja" });
       }
     })
     .catch((error) => {
