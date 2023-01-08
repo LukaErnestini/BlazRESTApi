@@ -18,15 +18,29 @@ exports.postAddPacient = (req, res, next) => {
 exports.postAddNapotnica = (req, res, next) => {
   const veljavnost_od = req.body.veljavnost_od;
   const veljavnost_do = req.body.veljavnost_do;
-  const pacientId = req.body.pacientId;
+  //const pacientId = req.body.pacientId;
   const stevilka = req.body.stevilka;
+  const oddelek = req.body.oddelek;
+  const ustanova = req.body.ustanova;
+  const termin = req.body.termin;
+  const zzzs = req.body.zzzs;
+  console.log(veljavnost_od);
   Napotnica.create({
     veljavnost_od,
     veljavnost_do,
-    pacientId,
+    //pacientId,
     stevilka,
-  });
-  res.json({ status: "Ustvarjena napotnica" });
+    oddelek,
+    ustanova,
+    termin,
+    zzzs,
+  })
+    .then(() => {
+      res.json({ status: "Ustvarjena napotnica" });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };
 
 exports.postPreveriNapotnico = (req, res, next) => {
