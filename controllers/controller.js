@@ -40,6 +40,7 @@ exports.postAddNapotnica = (req, res, next) => {
     })
     .catch((error) => {
       console.error(error);
+      res.status(400).json({ status: "Napaka pri ustvarjanju napotnice" });
     });
 };
 
