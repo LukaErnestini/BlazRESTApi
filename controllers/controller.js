@@ -46,14 +46,19 @@ exports.postAddNapotnica = (req, res, next) => {
 
 exports.postPreveriNapotnico = (req, res, next) => {
   const stevilka = req.body.stevilka;
+  const zzzs = req.body.zzzs;
 
-  Napotnica.findOne({ where: { stevilka } })
+  Napotnica.findOne({ where: { stevilka, zzzs } })
     .then((napotnica) => {
       if (napotnica) {
-        console.log(`Napotnica with ID ${stevilka} found!`);
+        console.log(
+          `Napotnica with stevilka ${stevilka} and zzzs number ${zzzs} found!`
+        );
         res.json({ status: "Napotnica obstaja" });
       } else {
-        console.log(`Napotnica with ID ${stevilka} not found.`);
+        console.log(
+          `Napotnica with stevilka ${stevilka} and zzzs number ${zzzs} not found.`
+        );
         res.status(404).json({ status: "Napotnica ne obstaja" });
       }
     })
