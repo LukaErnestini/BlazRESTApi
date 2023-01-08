@@ -13,9 +13,8 @@ const Napotnica = sequelize.define("napotnica", {
   veljavnost_od: DataTypes.DATE,
   veljavnost_do: DataTypes.DATE,
   stevilka: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     unique: true,
-    allowNull: false,
   },
   pacientId: {
     type: DataTypes.INTEGER,
@@ -24,6 +23,10 @@ const Napotnica = sequelize.define("napotnica", {
       key: "id",
     },
   },
+  oddelek: DataTypes.STRING,
+  ustanova: DataTypes.STRING,
+  termin: DataTypes.STRING,
+  zzzs: DataTypes.STRING,
 });
 
 module.exports = Napotnica;
