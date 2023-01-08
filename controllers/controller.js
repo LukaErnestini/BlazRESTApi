@@ -59,7 +59,7 @@ exports.postPreveriNapotnico = (req, res, next) => {
         console.log(
           `Napotnica with stevilka ${stevilka} and zzzs number ${zzzs} not found.`
         );
-        res.status(404).json({ status: "Napotnica ne obstaja" });
+        res.json({ status: "Napotnica ne obstaja" });
       }
     })
     .catch((error) => {
