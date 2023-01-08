@@ -10,8 +10,8 @@ const Napotnica = sequelize.define("napotnica", {
     primaryKey: true,
     unique: true,
   },
-  veljavnost_od: DataTypes.DATE,
-  veljavnost_do: DataTypes.DATE,
+  veljavnost_od: DataTypes.STRING,
+  veljavnost_do: DataTypes.STRING,
   stevilka: {
     type: DataTypes.STRING,
     unique: true,
